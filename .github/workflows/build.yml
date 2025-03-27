@@ -1,0 +1,25 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main  # или ваша ветка
+  pull_request:
+    branches:
+      - main  # или ваша ветка
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'  # укажите вашу версию Node.js
+
+      - name: Build project
+        run: npm run build
