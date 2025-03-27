@@ -1,65 +1,70 @@
 .header {
+	position: fixed;
+	z-index: 50;
+	width: 100%;
+	top: 0;
+	left: 0;
+	padding: rem(20) 0;
 
-	&__top {
-		color: #fff;
-		background-color: $mainDarkColor;
+	// .header__inner
+	&__inner {
 	}
 
+	// .header__menu
+	&__menu {
+	}
+}
+
+.menu {
+
+	// .menu__body
 	&__body {
 	}
 
-	&__catalog {
-	}
-}
-.top-header {
-	padding: rem(21) 0;
-	&__container {
+	// .menu__list
+	&__list {
 		display: flex;
 		align-items: center;
-		gap: rem(20);
-	}
-	&__menu {
-		flex: 1 1 auto;
+		flex-wrap: wrap;
+		gap: rem(10);
 	}
 
-	&__user {
-		display: flex;
-		align-items: center;
-		font-weight: 600;
-		line-height: math.div(21.94, 18);
-		&::before{
-			font-size: rem(28);
-			margin-right: em(15,28); // Меняется размер шрифта, меняется и отступ 
+	// .menu__item
+	&__item {
+		&:not(:last-child){
+			&::after {
+				content:''; 
+				float: right;
+				width: rem(1);
+				height: rem(18); 
+				background-color: #47505e;
+				margin-left: rem(10);
+			}
+		}
+	}
+
+	// .menu__link
+	&__link {
+		font-weight: 300;
+		font-size: rem(14);
+		line-height: 120%;
+		letter-spacing: 0;
+		color: #83888f;
+		transition: $transition;
+		&._active{
+			color: $mainLightColor;
+		}
+		@media (any-hover: hover){
+			 &:hover { 
+				color: $mainLightColor;
+				&._active{
+					color: #83888f;
+				}
+			} 
 		}
 	}
 }
-.menu {
 
-	&__body {
-	}
-
-	&__list {
-		display: flex;
-		flex-wrap: wrap;
-		row-gap: rem(5);
-		@include adaptiveValue("column-gap", 60, 20);
-	}
-
-	&__item {
-	}
-
-	&__link {
-		font-size: rem(16);
-		font-weight: 500;
-		line-height: math.div(19.5, 16);
-	}
-}
-.icon-menu {
-}
-.body-header {
-}
-.catalog-header {
-}
 
 //====================================================================================================
 

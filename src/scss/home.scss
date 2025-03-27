@@ -1,3 +1,67 @@
-//====================================================================================================
+.main-banner {
 
-//====================================================================================================
+	&__img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 5;
+		overflow: hidden;
+		&::before{
+			content:''; 
+			position: absolute;
+			z-index: 5;
+			width: 100%;
+			height: 100%; 
+			background-color: rgba(#123664, 0.5);
+		}
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	// .main-baner__container
+	&__container {
+		display: flex;
+		align-items: center;
+		width: 100%;
+	}
+
+	// .main-baner__inner
+	&__inner {
+		position: relative;
+		z-index: 10;
+		max-width: rem(615);
+		@media (max-width:em(375)){
+			width: 90%;
+		}
+	}
+
+	// .main-baner__title
+	&__title {
+		font-weight: 300;
+		@include adaptiveValue("font-size", 88, 22);
+		line-height: 120%;
+		letter-spacing: 2%;
+		text-transform: uppercase;
+		color: $mainLightColor;
+		&:not(:last-child){
+			margin-bottom: rem(20);
+		}
+	}
+
+	// .main-baner__subtitle
+	&__subtitle {
+		font-weight: 300;
+		@include adaptiveValue("font-size", 20, 14);
+		line-height: 150%;
+		letter-spacing: 0%;
+		color: $mainLightColor;
+		&:not(:last-child) {
+			margin-bottom: rem(15);
+		}
+	}
+}
